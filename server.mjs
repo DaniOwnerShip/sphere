@@ -6,6 +6,8 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser'; 
 import dotenv from 'dotenv';
 
+import TeamStructure from './server/models/modelTeamStructure.js';
+
 dotenv.config();
 
 const dev = process.env.NODE_ENV !== 'production';
