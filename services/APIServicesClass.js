@@ -8,7 +8,8 @@ class APIServices {
     
   console.log('getTeamStructureBy_id>>>:', teamId);
     try { 
-      const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
+      // const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
+      const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
       console.log('Respuesta de la API antes de JSON.parse:', response);
 
       const payload = await response.json();
