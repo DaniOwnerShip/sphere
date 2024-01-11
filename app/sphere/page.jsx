@@ -19,9 +19,24 @@ function getTeam(setter, id) {
     });
 }
 
+ async function test() {
+  
+  console.log('test');
+  try {
+    const response = await fetch(`https://sphere-iota.vercel.app/test`);
+    console.log('test response', response);
+    const payload = await response.json();
+    console.log('test payload', payload);
+    return payload;
+  }
+  catch (error) {
+    console.error('Error getTeamBy_id:', error);
+  }
+}
 
 function TeamStruture() {
-
+  test();
+  return;
   const systemRef = useRef();
   const [systemTeam, setSystemTeam] = useState();
 

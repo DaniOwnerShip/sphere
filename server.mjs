@@ -44,15 +44,20 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
-server.get('/api/user/teamStructureBy_id', async (req, res) => {
-  res.json({ message: '¡Función de prueba ejecutada correctamente!' }); 
+server.get('/test', async (req, res) => {
+  res.json({ message: '¡Función de test ejecutada correctamente!' }); 
 });
 
-server.use('/api/user', userAPIs);
 
-server.all('*', (req, res) => {
-  return handle(req, res);
-});
+// server.get('/api/user/teamStructureBy_id', async (req, res) => {
+//   res.json({ message: '¡Función de prueba ejecutada correctamente!' }); 
+// });
+
+// server.use('/api/user', userAPIs);
+
+// server.all('*', (req, res) => {
+//   return handle(req, res);
+// });
 
 server.listen(PORT, HOST, (err) => {
   if (err) throw err;
