@@ -7,7 +7,7 @@ import TeamStructure from '../models/modelTeamStructure.js';
  
 const userAPIs = express.Router();
 
-userAPIs.get('/api/user/teamStructureBy_id', async (req, res) => {
+userAPIs.get('/teamStructureBy_id', async (req, res) => {
  
   const idParam = req.query.teamId;
   const oId = new ObjectId(idParam);
@@ -27,7 +27,7 @@ userAPIs.get('/api/user/teamStructureBy_id', async (req, res) => {
 
 
 
-userAPIs.get('/api/user/teamBy_id', async (req, res) => {
+userAPIs.get('/teamBy_id', async (req, res) => {
 
   const idParam = req.query.teamId;
   const oId = new ObjectId(idParam); 
@@ -46,7 +46,7 @@ userAPIs.get('/api/user/teamBy_id', async (req, res) => {
 });
 
 
-userAPIs.post('/api/user/memberData', async (req, res) => { 
+userAPIs.post('/memberData', async (req, res) => { 
 
   const data = req.body; 
   const team = data.team;
