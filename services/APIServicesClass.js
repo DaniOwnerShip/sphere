@@ -2,14 +2,36 @@
 
 // const HOST = process.env.HOST || 'localhost';
 
-class APIServices {  
+class APIServices {
+
+
+ 
+  static async testapiservice() { 
+    console.log('testapiservice>>>:' );
+    try { 
+      const response = await fetch('http://localhost:4000/api/user/test'); 
+      const payload = await response.json();
+      console.log('testapiservice>>>:', payload);
+      return payload;
+    }
+    catch (error) {
+      console.error('error getStructuredTeam>:', error);
+    }
+  }
+
+
+ 
 
   static async getTeamStructureBy_id(teamId) {
-    
-  console.log('getTeamStructureBy_id>>>:', teamId);
-    try { 
+
+    console.log('getTeamStructureBy_id>>>:', teamId);
+    try {
       // const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
-      const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
+      // const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
+      // const response = await fetch(`/teamStructureBy_id?teamId=${teamId}`);
+      // const response = await fetch(`http://localhost:4000/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
+       const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
+      //const response = await fetch(`/test`);
       console.log('Respuesta de la API antes de JSON.parse:', response);
 
       const payload = await response.json();
@@ -20,6 +42,7 @@ class APIServices {
       console.error('error getStructuredTeam>:', error);
     }
   }
+
 
 
   static async getTeamBy_id(teamId) {

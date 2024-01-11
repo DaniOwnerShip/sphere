@@ -4,36 +4,38 @@ import { ObjectId } from 'mongodb';
 import TeamMembers from '../models/modelTeamMembers.js';
 import TeamStructure from '../models/modelTeamStructure.js';
 
+
+const serverFunctions = express.Router();
+
+serverFunctions.get('/teamStructureBy_id', async (req, res) => {
  
-const userAPIs = express.Router();
+  const idParam = req.query.teamId;  
+  const oId = new ObjectId(idParam);
 
-// userAPIs.get('/teamStructureBy_id', async (req, res) => { 
+  try {
+    if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
+    const item = await TeamStructure.findOne({ _id: oId });
+    if (!item) { return res.status(404).json({ error: 'not found' }); }
+    res.json(item);
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'server error teamStructureBy_id' });
+  }
 
-//   console.log('idParam:', req.query);
-//   const idParam = req.query.teamId;
-//   console.log('idParam:', idParam);
-
-//   const oId = new ObjectId(idParam);
-
-//   try {
-//     if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
-//     const item = await TeamStructure.findOne({ _id: oId });
-//     if (!item) { return res.status(404).json({ error: 'not found' }); }
-//     res.json(item);
-//   }
-//   catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'server error teamStructureBy_id' });
-//   }
-
-// });
+});
 
 
+serverFunctions.get('/test', async (req, res) => { 
+  console.log('testapiservice>>>:');
+  res.json({ message: 'Función testapiservice' }); 
+});
 
-userAPIs.get('/teamBy_id', async (req, res) => {
+
+serverFunctions.get('/teamBy_id', async (req, res) => {
 
   const idParam = req.query.teamId;
-  const oId = new ObjectId(idParam); 
+  const oId = new ObjectId(idParam);
 
   try {
     if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: 'error _id' }); }
@@ -49,11 +51,11 @@ userAPIs.get('/teamBy_id', async (req, res) => {
 });
 
 
-userAPIs.post('/memberData', async (req, res) => { 
+serverFunctions.post('/memberData', async (req, res) => {
 
-  const data = req.body; 
+  const data = req.body;
   const team = data.team;
-  const member = data.member; 
+  const member = data.member;
 
   try {
     const query = [
@@ -75,4 +77,4 @@ userAPIs.post('/memberData', async (req, res) => {
 
 
 
-export default userAPIs;
+export default serverFunctions;
