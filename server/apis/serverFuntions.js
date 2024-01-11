@@ -15,7 +15,7 @@ serverFunctions.get('/teamStructureBy_id', async (req, res) => {
   try {
     if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
     const item = await TeamStructure.findOne({ _id: oId });
-    if (!item) { return res.status(404).json({ error: 'not found' }); }
+    if (!item) { return res.status(414).json({ error: 'not found' }); }
     res.json(item);
   }
   catch (error) {
