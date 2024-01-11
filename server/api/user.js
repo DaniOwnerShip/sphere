@@ -7,13 +7,15 @@ import TeamStructure from '../models/modelTeamStructure.js';
  
 const userAPIs = express.Router();
 
-userAPIs.get('/teamStructureBy_id', async (req, res) => {
- 
+userAPIs.get('/teamStructureBy_id', async (req, res) => { 
+
   const idParam = req.query.teamId;
+  console.log('idParam:', idParam);
+
   const oId = new ObjectId(idParam);
 
   try {
-    if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '_id error' }); }
+    if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
     const item = await TeamStructure.findOne({ _id: oId });
     if (!item) { return res.status(404).json({ error: 'not found' }); }
     res.json(item);
