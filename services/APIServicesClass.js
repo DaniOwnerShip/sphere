@@ -5,7 +5,7 @@ class APIServices {
 
   static async getTeamStructureBy_id(teamId) {
     try { 
-      const response = await fetch(`http://${this.HOST}/api/user/teamStructureBy_id?teamId=${teamId}`);
+      const response = await fetch(`http://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
@@ -18,7 +18,7 @@ class APIServices {
 
   static async getTeamBy_id(teamId) {
     try {
-      const response = await fetch(`http://${this.HOST}/api/user/teamBy_id?teamId=${teamId}`);
+      const response = await fetch(`http://sphere-iota.vercel.app/api/user/teamBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
