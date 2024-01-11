@@ -9,8 +9,8 @@ const userAPIs = express.Router();
 
 userAPIs.get('/teamStructureBy_id', async (req, res) => { 
 
+  console.log('idParam:', req.query);
   const idParam = req.query.teamId;
-  console.log('idParam:', idParam);
 
   const oId = new ObjectId(idParam);
 
