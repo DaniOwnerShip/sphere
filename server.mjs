@@ -17,6 +17,8 @@ server.use(cors());
 server.use(bodyParser.json()); 
 server.use(router);
 
+const HOST = process.env.HOST || 'localhost';
+const PORT = process.env.PORT || 3000;
 const username = process.env.MONGODB_USER;  
 const password = process.env.MONGODB_PASSWORD;  
 const dbName = 'teamTest'; 
@@ -46,8 +48,8 @@ server.all('*', (req, res) => {
   return handle(req, res);
 });
 
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, (err) => {
+
+server.listen(PORT, HOST, (err) => {
   if (err) throw err;
-  console.log(`> Ready on http://localhost:${PORT}`);
+  console.log(`> Ready on https://${HOST}:${PORT}`);
 });

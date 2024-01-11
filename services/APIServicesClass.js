@@ -1,10 +1,11 @@
 
 class APIServices {
 
+  static HOST = process.env.HOST || 'localhost';
 
   static async getTeamStructureBy_id(teamId) {
-    try {
-      const response = await fetch(`http://localhost:3000/api/user/teamStructureBy_id?teamId=${teamId}`);
+    try { 
+      const response = await fetch(`http://${HOST}/api/user/teamStructureBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
