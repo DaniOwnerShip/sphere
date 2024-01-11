@@ -23,7 +23,7 @@ class APIServices {
       return payload;
     }
     catch (error) {
-      console.error('Error al cargar los datos:', error);
+      console.error('Error getTeamBy_id:', error);
     }
   }
 
@@ -46,7 +46,7 @@ class APIServices {
         throw new Error('Error POST');
       }
     } catch (error) {
-      console.error('Error:', error.message);
+      console.error('Error getMemberData:', error.message);
     }
   }
 

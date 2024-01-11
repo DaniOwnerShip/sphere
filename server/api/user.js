@@ -20,7 +20,7 @@ router.get('/api/user/teamStructureBy_id', async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'server error' });
+    res.status(500).json({ error: 'server error teamStructureBy_id' });
   }
 
 });
@@ -40,7 +40,7 @@ router.get('/api/user/teamBy_id', async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'server error' });
+    res.status(500).json({ error: 'server error teamBy_id' });
   }
 
 });
@@ -65,7 +65,7 @@ router.post('/api/user/memberData', async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'server error' });
+    res.status(500).json({ error: 'server error memberData' });
   }
 
 });
