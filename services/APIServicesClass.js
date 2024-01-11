@@ -5,7 +5,7 @@ class APIServices {
 
   static async getTeamStructureBy_id(teamId) {
     try { 
-      const response = await fetch(`http://${HOST}/api/user/teamStructureBy_id?teamId=${teamId}`);
+      const response = await fetch(`http://${this.HOST}/api/user/teamStructureBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
@@ -18,7 +18,7 @@ class APIServices {
 
   static async getTeamBy_id(teamId) {
     try {
-      const response = await fetch(`http://localhost:3000/api/user/teamBy_id?teamId=${teamId}`);
+      const response = await fetch(`http://${this.HOST}/api/user/teamBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
@@ -31,7 +31,7 @@ class APIServices {
   static async getMemberData(data) {
 
     try {
-      const response = await fetch('http://localhost:3000/api/user/memberData', {
+      const response = await fetch(`http://${this.HOST}/api/user/memberData`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
