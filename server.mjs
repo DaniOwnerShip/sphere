@@ -44,11 +44,12 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
+server.use('/api/user', userAPIs);
+
 server.all('*', (req, res) => {
   return handle(req, res);
 });
  
-server.use('/api/user', userAPIs);
 
 server.listen(PORT, HOST, (err) => {
   if (err) throw err;
