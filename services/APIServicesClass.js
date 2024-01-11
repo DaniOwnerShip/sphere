@@ -5,13 +5,16 @@
 class APIServices {  
 
   static async getTeamStructureBy_id(teamId) {
+    
+  console.log('getTeamStructureBy_id>>>:', teamId);
     try { 
       const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
       const payload = await response.json();
+      console.log('payload>>>:', payload);
       return payload;
     }
     catch (error) {
-      console.error('error getStructuredTeam:', error);
+      console.error('error getStructuredTeam>:', error);
     }
   }
 
