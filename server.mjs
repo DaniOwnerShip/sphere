@@ -44,6 +44,30 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
+
+
+server.get('/api/user/teamStructureBy_id', async (req, res) => { 
+
+  console.log('idParam:', req.query);
+  const idParam = req.query.teamId;
+  console.log('idParam:', idParam);
+
+  const oId = new ObjectId(idParam);
+
+  try {
+    if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
+    const item = await TeamStructure.findOne({ _id: oId });
+    if (!item) { return res.status(404).json({ error: 'not found' }); }
+    res.json(item);
+  }
+  catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'server error teamStructureBy_id' });
+  }
+
+});
+
+
 server.use('/api/user', userAPIs);
 
 server.all('*', (req, res) => {
