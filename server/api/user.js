@@ -4,10 +4,10 @@ import { ObjectId } from 'mongodb';
 import TeamMembers from '../models/modelTeamMembers.js';
 import TeamStructure from '../models/modelTeamStructure.js';
 
-const router = express.Router();
+ 
+const userAPIs = express.Router();
 
-
-router.get('/api/user/teamStructureBy_id', async (req, res) => {
+userAPIs.get('/api/user/teamStructureBy_id', async (req, res) => {
  
   const idParam = req.query.teamId;
   const oId = new ObjectId(idParam);
@@ -27,7 +27,7 @@ router.get('/api/user/teamStructureBy_id', async (req, res) => {
 
 
 
-router.get('/api/user/teamBy_id', async (req, res) => {
+userAPIs.get('/api/user/teamBy_id', async (req, res) => {
 
   const idParam = req.query.teamId;
   const oId = new ObjectId(idParam); 
@@ -46,7 +46,7 @@ router.get('/api/user/teamBy_id', async (req, res) => {
 });
 
 
-router.post('/api/user/memberData', async (req, res) => { 
+userAPIs.post('/api/user/memberData', async (req, res) => { 
 
   const data = req.body; 
   const team = data.team;
@@ -72,4 +72,4 @@ router.post('/api/user/memberData', async (req, res) => {
 
 
 
-export default router;
+export default userAPIs;

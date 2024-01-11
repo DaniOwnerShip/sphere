@@ -1,6 +1,6 @@
 import express from 'express';
 import next from 'next';
-import router from './server/api/user.js';
+import userAPIs from './server/api/user.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser'; 
@@ -47,7 +47,8 @@ mongoose.connection.on('disconnected', () => {
 server.all('*', (req, res) => {
   return handle(req, res);
 });
-
+ 
+server.use('/api/user', userAPIs);
 
 server.listen(PORT, HOST, (err) => {
   if (err) throw err;
