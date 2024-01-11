@@ -1,0 +1,59 @@
+.Container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+    width: 90vw;
+    height: 90vh;
+    /* border: 3px solid rgb(131, 88, 10); */
+    background-color: #5a5a5a;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    min-height: 100vh; 
+    grid-template-areas:
+        "header header  "
+        "data skillsdata "  
+        "team . " ;
+} 
+
+.Container .header {
+    grid-area: header; 
+    border: 1px solid rgba(255, 166, 0, 0.199);
+    text-align: center; 
+    padding: 3%;
+} 
+.Container .data {
+    grid-area: data; 
+    border: 1px solid rgba(255, 166, 0, 0.199);
+    padding: 3%;
+}  
+
+.Container .skillsdata {
+    grid-area: skillsdata; 
+    border: 1px solid rgba(255, 166, 0, 0.199);
+    padding: 3%;
+}
+.Container .team {
+    grid-area: team; 
+    border: 1px solid rgba(255, 166, 0, 0.199);
+    padding: 3%;
+}
+
+ /* .Container .name {
+    border: 1px solid rgb(131, 88, 10);
+    grid-area: name; 
+} 
+.Container .rol {
+    border: 1px solid rgb(131, 88, 10);
+    grid-area: rol; 
+}  
+.Container .skills {
+    border: 1px solid rgb(131, 88, 10);
+    grid-area: skills; 
+}
+h3 {
+    display: inline;  
+  }*/
+  
