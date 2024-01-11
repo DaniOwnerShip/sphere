@@ -10,7 +10,7 @@ var TEAM1_id = '6582315543bcbc56797177aa';
 
 
 function getTeam(setter, id) {
-  APIServices.getTeamStructureBy_id(id)
+  APIServices.getTeamStructureBy_id('6582315543bcbc56797177aa')
     .then(team => {
       setter(team.team[0]);
     })
