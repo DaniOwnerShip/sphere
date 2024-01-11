@@ -1,11 +1,13 @@
 
-class APIServices {
 
-  static HOST = process.env.HOST || 'localhost';
+const HOST = process.env.HOST || 'localhost';
+
+class APIServices { 
+
 
   static async getTeamStructureBy_id(teamId) {
     try { 
-      const response = await fetch(`http://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
+      const response = await fetch(`https://${HOST}/api/user/teamStructureBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
@@ -15,10 +17,9 @@ class APIServices {
   }
 
 
-
   static async getTeamBy_id(teamId) {
     try {
-      const response = await fetch(`http://sphere-iota.vercel.app/api/user/teamBy_id?teamId=${teamId}`);
+      const response = await fetch(`https://${HOST}/api/user/teamBy_id?teamId=${teamId}`);
       const payload = await response.json();
       return payload;
     }
@@ -31,7 +32,7 @@ class APIServices {
   static async getMemberData(data) {
 
     try {
-      const response = await fetch(`http://${this.HOST}/api/user/memberData`, {
+      const response = await fetch(`https://${HOST}/api/user/memberData`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
