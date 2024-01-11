@@ -1,4 +1,4 @@
-
+"use client"
 
 // const HOST = process.env.HOST || 'localhost';
 
