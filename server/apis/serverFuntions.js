@@ -26,10 +26,10 @@ const serverFunctions = express.Router();
 // });
 
 
-serverFunctions.get('/test', async (req, res) => { 
-  console.log('testapiservice>>>:');
-  res.json({ message: 'Función testapiservice' }); 
-});
+// serverFunctions.get('/test', async (req, res) => { 
+//   console.log('testapiservice>>>:');
+//   res.json({ message: 'Función testapiservice' }); 
+// });
 
 
 serverFunctions.get('/teamBy_id', async (req, res) => {
