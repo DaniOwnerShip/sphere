@@ -21,6 +21,22 @@ const handle = app.getRequestHandler();
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
+
+server.get('/custom-route', (req, res) => {
+  // Manejar solicitudes a /custom-route
+  res.send('Hello from custom route!');
+});
+server.all('*', (req, res) => {
+  console.log(`server.all`);
+  return handle(req, res);
+});
+
+ server.listen(PORT, (err) => {
+  if (err) throw err;
+  console.log(`> Ready on https://${HOST}:${PORT}`);
+});
+
+
  // Modifica tu servidor Express
 
 
@@ -43,19 +59,6 @@ server.use(bodyParser.json());
 //     res.status(500).json({ error: 'Error interno del servidor' });
 //   }
 // });
-server.get('/custom-route', (req, res) => {
-  // Manejar solicitudes a /custom-route
-  res.send('Hello from custom route!');
-});
-server.all('*', (req, res) => {
-  console.log(`server.all`);
-  return handle(req, res);
-});
-
- server.listen(PORT, HOST, (err) => {
-  if (err) throw err;
-  console.log(`> Ready on https://${HOST}:${PORT}`);
-});
 
 // const uri = `mongodb+srv://${username}:${password}@cluster0.8y0ptqu.mongodb.net/${dbName}`;
 // //const uri = `mongodb://localhost:27017/teamTest`; 
