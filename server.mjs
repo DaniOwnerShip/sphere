@@ -1,6 +1,6 @@
 import express from 'express';
 import next from 'next';
-import serverFunctions from '../server/apis/serverFuntions.js';
+import serverFunctions from './server/apis/serverFuntions.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const HOST = process.env.HOST || 'localhost';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const username = process.env.MONGODB_USER;
 const password = process.env.MONGODB_PASSWORD;
 const dbName = 'teamTest';
@@ -22,9 +22,9 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 
-server.get('/custom-route', (req, res) => {
-  // Manejar solicitudes a /custom-route
-  res.send('Hello from custom route!');
+server.get('/custom-route', (req, res) => { 
+  //res.send('Hello from custom route!');
+  res.json({ message: 'Hola mundo' });
 });
 
 server.all('*', (req, res) => {
@@ -32,9 +32,12 @@ server.all('*', (req, res) => {
   return handle(req, res);
 });
 
- server.listen(PORT, (err) => {
+ // server.listen(PORT, (err) => {
+ //server.listen(4000,'localhost' , (err) => {
+  server.listen(PORT, '', (err) => {
   if (err) throw err;
-  console.log(`> Ready on https://${HOST}:${PORT}`);
+  console.log(`> Ready on https://localhost:4000`);
+ //  console.log(`> Ready on https://${HOST}:${PORT}`);
 });
 
 
