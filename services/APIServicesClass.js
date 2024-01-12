@@ -14,7 +14,8 @@ class APIServices {
       const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://sphere-iota.vercel.app'; 
       // Luego, utiliza serverURL en tus solicitudes fetch
       // const response = await fetch(`${serverURL}/api/user/teamStructureBy_id?teamId=...`);
-      const response = await fetch(`${serverURL}/test`);
+      // const response = await fetch(`${serverURL}/test`);
+      const response = await fetch(`/test`);
       
       const payload = await response.json();
       console.log('testapiservice>>>:', payload);
