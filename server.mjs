@@ -43,7 +43,10 @@ server.use(bodyParser.json());
 //     res.status(500).json({ error: 'Error interno del servidor' });
 //   }
 // });
- 
+server.get('/custom-route', (req, res) => {
+  // Manejar solicitudes a /custom-route
+  res.send('Hello from custom route!');
+});
 server.all('*', (req, res) => {
   console.log(`server.all`);
   return handle(req, res);
