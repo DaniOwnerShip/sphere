@@ -47,19 +47,22 @@ mongoose.connection.on('disconnected', () => {
 
 server.get('/api/user/teamStructureBy_id', async (req, res) => { 
  
-  const idParam = req.query.teamId;  
-  const oId = new ObjectId(idParam);
 
-  try {
-    if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
-    const item = await TeamStructure.findOne({ _id: oId });
-    if (!item) { return res.status(414).json({ error: 'not found' }); }
-    res.json(item);
-  }
-  catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'server error teamStructureBy_id' });
-  }
+  res.json({ test: 'teamStructureBy_id' });
+
+  // const idParam = req.query.teamId;  
+  // const oId = new ObjectId(idParam);
+
+  // try {
+  //   if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
+  //   const item = await TeamStructure.findOne({ _id: oId });
+  //   if (!item) { return res.status(414).json({ error: 'not found' }); }
+  //   res.json(item);
+  // }
+  // catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({ error: 'server error teamStructureBy_id' });
+  // }
 
 });
 
