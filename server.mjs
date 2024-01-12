@@ -22,6 +22,7 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
  // Modifica tu servidor Express
+ 
  server.get('/api/*', async (req, res) => {
   try {
     // Extrae la ruta específica desde req.params[0]
