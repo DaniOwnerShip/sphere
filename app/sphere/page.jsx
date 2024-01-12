@@ -2,7 +2,7 @@
 
 import '../../styles/sphere.css';
 import React, { useState, useRef } from 'react';
-import APIServices from '../../pages/api/APIServicesClass';
+import APIServices from '../../services/APIServicesClass';
 import SphereSystem from './sphereSystem';
 import Draggable from 'react-draggable';
 
@@ -49,7 +49,7 @@ async function test() {
 const fetchData = async () => {
   console.log('fetchData');
   try {
-    const response = await fetch(`https://sphere-iota.vercel.app/api/data`);
+    const response = await fetch(`https://sphere-iota.vercel.app/api/hello`);
     console.log('fetchData response', response);
     const data = await response.json();
     console.log('fetchData data', data);

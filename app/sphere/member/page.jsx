@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import '../../../styles/member.css';
 
 import { MemberData } from '../../../components/cards';
-import APIServices from '../../../pages/api/APIServicesClass';
+import APIServices from '../../../services/APIServicesClass';
 
 
  

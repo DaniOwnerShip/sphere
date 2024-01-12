@@ -22,25 +22,27 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
  // Modifica tu servidor Express
- app.get('/api/data', (req, res) => {
-  // Enviar una respuesta en formato JSON
-  res.json({ message: 'Hola mundo' });
-});
- app.get('/api/*', async (req, res) => {
-  try {
-    // Extrae la ruta específica desde req.params[0]
-    const apiRoute = req.params[0];
-    
-    // Realiza cualquier operación o procesamiento necesario aquí
-    const responseData = { mensaje: `Hola desde el servidor Express en la ruta /api/${apiRoute}` };
 
-    // Envía la respuesta al cliente
-    res.status(200).json(responseData);
-  } catch (error) {
-    console.error('Error:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
-  }
-});
+
+ //  app.get('/api/data', (req, res) => {
+//   // Enviar una respuesta en formato JSON
+//   res.json({ message: 'Hola mundo' });
+// });
+//  app.get('/api/*', async (req, res) => {
+//   try {
+//     // Extrae la ruta específica desde req.params[0]
+//     const apiRoute = req.params[0];
+    
+//     // Realiza cualquier operación o procesamiento necesario aquí
+//     const responseData = { mensaje: `Hola desde el servidor Express en la ruta /api/${apiRoute}` };
+
+//     // Envía la respuesta al cliente
+//     res.status(200).json(responseData);
+//   } catch (error) {
+//     console.error('Error:', error);
+//     res.status(500).json({ error: 'Error interno del servidor' });
+//   }
+// });
  
 server.all('*', (req, res) => {
   console.log(`server.all`);
