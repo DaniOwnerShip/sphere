@@ -1,6 +1,6 @@
 import express from 'express';
 import next from 'next';
-import serverFunctions from './server/apis/serverFuntions.js';
+import serverFunctions from '../server/apis/serverFuntions.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -26,6 +26,7 @@ server.get('/custom-route', (req, res) => {
   // Manejar solicitudes a /custom-route
   res.send('Hello from custom route!');
 });
+
 server.all('*', (req, res) => {
   console.log(`server.all`);
   return handle(req, res);
