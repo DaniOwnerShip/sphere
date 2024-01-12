@@ -8,19 +8,47 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-//const dev = process.env.NODE_ENV !== 'production';
-// const app = next({ dev });
-// const handle = app.getRequestHandler();
-
-const server = express();
-server.use(cors());
-server.use(bodyParser.json());
-
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 3000;
 const username = process.env.MONGODB_USER;
 const password = process.env.MONGODB_PASSWORD;
 const dbName = 'teamTest';
+
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
+
+const server = express();
+server.use(cors());
+server.use(bodyParser.json());
+
+app.prepare().then(() => {
+  const server = express();
+
+  server.get('/test', async (req, res) => {
+    // Lógica para manejar la solicitud desde el cliente
+    try {
+      // Realiza cualquier operación o procesamiento necesario aquí
+      const responseData = { mensaje: 'Hola desde el servidor Express' };
+
+      // Envía la respuesta al cliente
+      res.status(200).json(responseData);
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
+    }
+  });
+
+  server.all('*', (req, res) => {
+    return handle(req, res);
+  });
+
+  server.listen(PORT,  (err) => {
+  // server.listen(3000, (err) => {
+    if (err) throw err;
+    console.log('> Servidor Express listo  ');
+  });
+});
 
 // const uri = `mongodb+srv://${username}:${password}@cluster0.8y0ptqu.mongodb.net/${dbName}`;
 // //const uri = `mongodb://localhost:27017/teamTest`; 
