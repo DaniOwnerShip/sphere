@@ -47,9 +47,12 @@ async function test() {
 
 
 const fetchData = async () => {
+  console.log('fetchData');
   try {
     const response = await fetch(`https://sphere-iota.vercel.app/test`);
+    console.log('fetchData response', response);
     const data = await response.json();
+    console.log('fetchData data', data);
     console.log(data);  
   } catch (error) {
     console.error('Error de red:', error);
