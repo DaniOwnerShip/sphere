@@ -2,7 +2,7 @@
 
 import '../../styles/sphere.css';
 import React, { useState, useRef } from 'react';
-import APIServices from '../../services/APIServicesClass';
+import APIServices from '../../pages/api/APIServicesClass';
 import SphereSystem from './sphereSystem';
 import Draggable from 'react-draggable';
 
