@@ -9,7 +9,8 @@ class APIServices {
   static async testapiservice() {
     console.log('testapiservice>>>:');
     try {
-      const response = await fetch('http://localhost:4000/api/user/test');
+        // const response = await fetch('http://localhost:4000/api/user/test');
+      const response = await fetch(`https://sphere-iota.vercel.app/test`);
       const payload = await response.json();
       console.log('testapiservice>>>:', payload);
       return payload;
