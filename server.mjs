@@ -43,13 +43,12 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
+server.get('/test', async (req, res) => {  
+  res.json({ test: 'teamStructureBy_id' }); 
+});
 
-
-server.get('/api/user/teamStructureBy_id', async (req, res) => { 
- 
-
-  res.json({ test: 'teamStructureBy_id' });
-
+server.get('/api/user/teamStructureBy_id', async (req, res) => {  
+  res.json({ test: 'teamStructureBy_id' }); 
 });
   // const idParam = req.query.teamId;  
   // const oId = new ObjectId(idParam);
