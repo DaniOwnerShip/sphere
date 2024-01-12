@@ -8,7 +8,7 @@ class APIServices {
     console.log('testapiservice>>>:');
     try {
         // const response = await fetch('http://localhost:4000/api/user/test');
-      const response = await fetch(`https://sphere-iota.vercel.app/test`);
+      const response = await fetch(`https://sphere-iota.vercel.app/api/test`);
       //const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://sphere-iota.vercel.app'; 
       //console.log('testapiservice>>> serverURL:', serverURL);
       // Luego, utiliza serverURL en tus solicitudes fetch
