@@ -44,10 +44,21 @@ async function test() {
   //   console.error('Error test:', error);
   // }
 }
+const fetchData = async () => {
+  try {
+    const response = await fetch(`http://localhost:3000/test`);
+    const data = await response.json();
+    console.log(data); // Aquí puedes manejar la respuesta del servidor
+  } catch (error) {
+    console.error('Error de red:', error);
+  }
+};
+
+// Llama a la función para realizar el fetch
 
 
 function TeamStruture() {
-  test();
+  fetchData();
   return;
   const systemRef = useRef();
   const [systemTeam, setSystemTeam] = useState();
