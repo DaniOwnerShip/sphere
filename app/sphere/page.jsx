@@ -49,7 +49,7 @@ async function test() {
 const fetchData = async () => {
   console.log('fetchData');
   try {
-    const response = await fetch(`/api/test`);
+    const response = await fetch(`https://sphere-iota.vercel.app/api/data`);
     console.log('fetchData response', response);
     const data = await response.json();
     console.log('fetchData data', data);

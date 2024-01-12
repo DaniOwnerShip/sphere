@@ -22,7 +22,10 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
  // Modifica tu servidor Express
- 
+ app.get('/api/data', (req, res) => {
+  // Enviar una respuesta en formato JSON
+  res.json({ message: 'Hola mundo' });
+});
  app.get('/api/*', async (req, res) => {
   try {
     // Extrae la ruta específica desde req.params[0]
