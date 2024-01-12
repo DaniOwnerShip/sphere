@@ -8,9 +8,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
+//const dev = process.env.NODE_ENV !== 'production';
+// const app = next({ dev });
+// const handle = app.getRequestHandler();
 
 const server = express();
 server.use(cors());
