@@ -2,21 +2,22 @@
 
 // const HOST = process.env.HOST || 'localhost';
 
-class APIServices {
-
-
+class APIServices { 
 
   static async testapiservice() {
     console.log('testapiservice>>>:');
     try {
         // const response = await fetch('http://localhost:4000/api/user/test');
-      // const response = await fetch(`https://sphere-iota.vercel.app/test`);
-      const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://sphere-iota.vercel.app'; 
+      const response = await fetch(`https://sphere-iota.vercel.app/test`);
+      //const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://sphere-iota.vercel.app'; 
+      //console.log('testapiservice>>> serverURL:', serverURL);
       // Luego, utiliza serverURL en tus solicitudes fetch
       // const response = await fetch(`${serverURL}/api/user/teamStructureBy_id?teamId=...`);
-      // const response = await fetch(`${serverURL}/test`);
-      const response = await fetch(`/test`);
+      //const response = await fetch(`${serverURL}/test`);
+                     //const response = await fetch('http://localhost:4000/api/user/teamStructureBy_id');
+      // const response = await fetch(`/test`);
       
+      console.log('testapiservice>>> response:', response);
       const payload = await response.json();
       console.log('testapiservice>>>:', payload);
       return payload;

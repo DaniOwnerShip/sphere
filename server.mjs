@@ -4,7 +4,7 @@ import serverFunctions from './server/apis/serverFuntions.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv'; 
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -22,63 +22,64 @@ const username = process.env.MONGODB_USER;
 const password = process.env.MONGODB_PASSWORD;
 const dbName = 'teamTest';
 
-const uri = `mongodb+srv://${username}:${password}@cluster0.8y0ptqu.mongodb.net/${dbName}`;
-//const uri = `mongodb://localhost:27017/teamTest`; 
+// const uri = `mongodb+srv://${username}:${password}@cluster0.8y0ptqu.mongodb.net/${dbName}`;
+// //const uri = `mongodb://localhost:27017/teamTest`; 
 
-(async () => {
-  try {
-    await mongoose.connect(uri, {});
-    console.log('MongoDB connected');
-  } catch (error) {
-    console.error('Error connecting to MongoDB:', error);
-    return;
-  }
-})();
+// (async () => {
+//   try {
+//     await mongoose.connect(uri, {});
+//     console.log('MongoDB connected');
+//   } catch (error) {
+//     console.error('Error connecting to MongoDB:', error);
+//     return;
+//   }
+// })();
 
-mongoose.connection.on('error', (err) => {
-  console.error('MongoDB err:', err);
+// mongoose.connection.on('error', (err) => {
+//   console.error('MongoDB err:', err);
+// });
+
+// mongoose.connection.on('disconnected', () => {
+//   console.log('MongoDB disconnected');
+// });
+
+server.get('/test', async (req, res) => {
+  console.log('get test'  ); 
+  res.json({ test: '/test' });
 });
 
-mongoose.connection.on('disconnected', () => {
-  console.log('MongoDB disconnected');
+server.get('/api/user/teamStructureBy_id', async (req, res) => {
+  console.log('get api/user/teamStructureBy_id'  ); 
+  res.json({ test: 'teamStructureBy_id' });
 });
+// const idParam = req.query.teamId;  
+// const oId = new ObjectId(idParam);
 
-server.get('/test', async (req, res) => {  
-  res.json({ test: 'teamStructureBy_id' }); 
-});
+// try {
+//   if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
+//   const item = await TeamStructure.findOne({ _id: oId });
+//   if (!item) { return res.status(414).json({ error: 'not found' }); }
+//   res.json(item);
+// }
+// catch (error) {
+//   console.error(error);
+//   res.status(500).json({ error: 'server error teamStructureBy_id' });
+// }
 
-server.get('/api/user/teamStructureBy_id', async (req, res) => {  
-  res.json({ test: 'teamStructureBy_id' }); 
-});
-  // const idParam = req.query.teamId;  
-  // const oId = new ObjectId(idParam);
-
-  // try {
-  //   if (!ObjectId.isValid(oId)) { return res.status(400).json({ error: '>_id error' }); }
-  //   const item = await TeamStructure.findOne({ _id: oId });
-  //   if (!item) { return res.status(414).json({ error: 'not found' }); }
-  //   res.json(item);
-  // }
-  // catch (error) {
-  //   console.error(error);
-  //   res.status(500).json({ error: 'server error teamStructureBy_id' });
-  // }
-
-
-
-
+ 
 
 server.use('/api/user', serverFunctions);
 
-server.all('*', (req, res) => {
-  console.log(`server.all(*`); 
-  return handle(req, res);
-});
+// server.all('*', (req, res) => {
+//   console.log(`server.all`);
+//   return handle(req, res);
+// });
 
-server.listen(PORT, HOST, (err) => {
+ server.listen(PORT, HOST, (err) => {
+//server.listen(4000,'localhost' , (err) => {
   if (err) throw err;
-  console.log(`> Ready on http://${HOST}:${PORT}`);
+  console.log(`> Ready on http://localhost:${4000}`);
+  // console.log(`> Ready on http://${HOST}:${PORT}`);
 });
 
 
- 
