@@ -23,7 +23,7 @@ function getTeam(setter, id) {
 // http://localhost:3000/sphere
 
 async function test() {
-  APIServices.getTeamStructureBy_id('6582315543bcbc56797177aa')
+  APIServices.testapiservice( )
   // APIServices.testapiservice() 
   .then(team => {
     console.log('teamteamteamteamr: ', team); 
