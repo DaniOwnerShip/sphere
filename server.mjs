@@ -50,6 +50,7 @@ server.get('/api/user/teamStructureBy_id', async (req, res) => {
 
   res.json({ test: 'teamStructureBy_id' });
 
+});
   // const idParam = req.query.teamId;  
   // const oId = new ObjectId(idParam);
 
@@ -64,7 +65,6 @@ server.get('/api/user/teamStructureBy_id', async (req, res) => {
   //   res.status(500).json({ error: 'server error teamStructureBy_id' });
   // }
 
-});
 
 
 
