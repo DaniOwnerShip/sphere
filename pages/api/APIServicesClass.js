@@ -15,7 +15,7 @@ class APIServices {
       // Luego, utiliza serverURL en tus solicitudes fetch
       // const response = await fetch(`${serverURL}/api/user/teamStructureBy_id?teamId=...`);
       // const response = await fetch(`${serverURL}/test`);
-      const response = await fetch(`/api/test`);
+      const response = await fetch(`/test`);
       
       const payload = await response.json();
       console.log('testapiservice>>>:', payload);
