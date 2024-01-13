@@ -1,5 +1,6 @@
 // Definir la función que maneja la solicitud
 export default function handler(req, res) {
+    console.log(`function handler`);
     // Comprobar el método HTTP
     if (req.method === 'GET') {
       // Enviar una respuesta en formato JSON con el mensaje de "Hola mundo"

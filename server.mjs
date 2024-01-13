@@ -16,32 +16,32 @@ const dbName = 'teamTest';
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const handle = app.getRequestHandler();
+// const handle = app.getRequestHandler();
 
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 
-server.get('/custom-route', (req, res) => { 
-  //res.send('Hello from custom route!');
-  res.json({ message: 'Hola mundo' });
-});
+// server.all('*', (req, res) => {
+//   console.log(`server.all`);
+//   return handle(req, res);
+// });
 
-server.all('*', (req, res) => {
-  console.log(`server.all`);
-  return handle(req, res);
-});
-
- // server.listen(PORT, (err) => {
+  server.listen(PORT,'', (err) => {
  //server.listen(4000,'localhost' , (err) => {
-  server.listen(PORT, '', (err) => {
+  //server.listen(PORT, '', (err) => {
   if (err) throw err;
-  console.log(`> Ready on https://localhost:4000`);
+  console.log(`> Ready on http://localhost:4000`);
  //  console.log(`> Ready on https://${HOST}:${PORT}`);
 });
 
 
  // Modifica tu servidor Express
+// server.get('/custom-route', (req, res) => { 
+//   //res.send('Hello from custom route!');
+//   res.json({ message: 'Hola mundo' });
+// });
+
 
 
  //  app.get('/api/data', (req, res) => {
