@@ -1,12 +1,15 @@
-import express from 'express';
 
-const app = express();
 
-app.get('/test', async (req, res) => {
-  const response = await fetch(`https://sphere-iota.vercel.app/test`);
-//   const response = await fetch('http://localhost:3000/users');
-  const users = await response.json();
-  res.json(users);
-});
-
-export default app;
+// Definir la función que maneja la solicitud
+export default function handler(req, res) {
+    console.log(`function handler`);
+    // Comprobar el método HTTP
+    if (req.method === 'GET') {
+      // Enviar una respuesta en formato JSON con el mensaje de "Hola mundo"
+      res.status(200).json({ message: 'Hola mundo' });
+    } else {
+      // Enviar un error si el método no es GET
+      res.status(405).json({ message: 'Método no permitido' });
+    }
+  }
+  
