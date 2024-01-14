@@ -1,5 +1,7 @@
 // pages/api/sphere/[...slug].js
 
+import { getTeamByID } from '../../server/apis/serverFuntions.js';
+
 export default function handler(req, res) {
     const { method, query } = req;
     const { slug } = query;

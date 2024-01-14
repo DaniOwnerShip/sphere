@@ -43,35 +43,25 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
-server.get('/test', (req, res) => {
-  const users = [
-    { id: 1, name: 'John Doe' },
-    { id: 2, name: 'Jane Doe' },
-    { id: 3, name: 'Bob Smith' }
-  ];
-  res.json(users);
-});
-
-
 server.get('/testindex', async (req, res) => {
   console.log('get test'  ); 
   res.json({ test: '/test' });
 });
 
-server.get('/', (req, res) => {
-  res.json({ test: '/test' });
-  // return handle(req, res);
-})
+// server.get('/', (req, res) => {
+//   res.json({ test: '/test' });
+//   // return handle(req, res);
+// })
 
 // server.all('*', (req, res) => {
 //   res.send('hello world')
 // });
  
 app.prepare().then(() => {
-  // server.listen(4000,'localhost', (err) => {
+  //  server.listen(4000,'localhost', (err) => {
   server.listen(PORT, '', (err) => {
     if (err) throw err;
-    //  // console.log('> Ready on http://localhost:4000');
+    //  //console.log('> Ready on http://localhost:4000');
     console.log(`> Ready on https://${HOST}:${PORT}`);
   });
 });
