@@ -3,48 +3,17 @@
 // const HOST = process.env.HOST || 'localhost';
 
 class APIServices { 
-
-  static async testapiservice() {
-    console.log('testapiservice>>>:');
-    try {
-        // const response = await fetch('http://localhost:4000/api/user/test');
-      const response = await fetch(`https://sphere-iota.vercel.app/api/test`);
-      //const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'https://sphere-iota.vercel.app'; 
-      //console.log('testapiservice>>> serverURL:', serverURL);
-      // Luego, utiliza serverURL en tus solicitudes fetch
-      // const response = await fetch(`${serverURL}/api/user/teamStructureBy_id?teamId=...`);
-      //const response = await fetch(`${serverURL}/test`);
-                     //const response = await fetch('http://localhost:4000/api/user/teamStructureBy_id');
-      // const response = await fetch(`/test`);
-      
-      console.log('testapiservice>>> response:', response);
-      const payload = await response.json();
-      console.log('testapiservice>>>:', payload);
-      return payload;
-    }
-    catch (error) {
-      console.error('error getStructuredTeam>:', error);
-    }
-  }
-
-
-  // const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=${teamId}`);
-  // const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
-  // const response = await fetch(`/teamStructureBy_id?teamId=${teamId}`);
-  // const response = await fetch(`http://localhost:4000/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
-  //const response = await fetch(`/test`);
+ 
 
   static async getTeamStructureBy_id(teamId) {
-
+    // const teamId = _teamId.id;
     console.log('getTeamStructureBy_id>>>:', teamId);
+    const url = `http://localhost:4000/api/${teamId}`;
     try {
-      console.log('URL del fetch:', `https://${process.env.HOST}/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
-       //const response = await fetch(`https://${process.env.HOST}/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
-      
-      const response = await fetch(`https://sphere-iota.vercel.app/api/user/teamStructureBy_id?teamId=6582315543bcbc56797177aa`);
+      const response = await fetch(url);
+      const payload = await response.json();
       console.log('Respuesta de la API antes de JSON.parse:', response);
 
-      const payload = await response.json();
       console.log('payload>>>:', payload);
       return payload;
     }

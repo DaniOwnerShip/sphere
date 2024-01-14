@@ -1,6 +1,6 @@
 import express from 'express';
 import next from 'next';
-import serverFunctions from './server/apis/serverFuntions.js';
+// import serverFunctions from './server/apis/serverFuntions.js';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -14,26 +14,75 @@ const username = process.env.MONGODB_USER;
 const password = process.env.MONGODB_PASSWORD;
 const dbName = 'teamTest';
 
+  
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-// const handle = app.getRequestHandler();
-
+const handle = app.getRequestHandler();
 const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 
-// server.all('*', (req, res) => {
-//   console.log(`server.all`);
-//   return handle(req, res);
+//const uri = `mongodb+srv://${username}:${password}@cluster0.8y0ptqu.mongodb.net/${dbName}`;
+const uri = `mongodb://localhost:27017/teamTest`; 
+
+(async () => {
+  try {
+    await mongoose.connect(uri, {});
+    console.log('MongoDB connected');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error);
+    return;
+  }
+})();
+
+mongoose.connection.on('error', (err) => {
+  console.error('MongoDB err:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('MongoDB disconnected');
+});
+
+server.get('/testindex', async (req, res) => {
+  console.log('get test'  ); 
+  res.json({ test: '/test' });
+});
+
+server.all('*', (req, res) => {
+  return handle(req, res);
+});
+ 
+app.prepare().then(() => {
+  // server.listen(4000,'localhost', (err) => {
+  server.listen(PORT, '', (err) => {
+    if (err) throw err;
+    //  // console.log('> Ready on http://localhost:4000');
+    console.log(`> Ready on https://${HOST}:${PORT}`);
+  });
+});
+ 
+// server.listen(4000, 'localhost', (err) => {
+//   if (err) throw err;
+//   console.log(`> Ready on http://localhost:4000`);
 // });
 
-  server.listen(PORT,'', (err) => {
- //server.listen(4000,'localhost' , (err) => {
-  //server.listen(PORT, '', (err) => {
-  if (err) throw err;
-  console.log(`> Ready on http://localhost:4000`);
- //  console.log(`> Ready on https://${HOST}:${PORT}`);
-});
+
+// const server = express();
+// server.use(cors());
+// server.use(bodyParser.json());
+
+// // server.all('*', (req, res) => {
+// //   console.log(`server.all`);
+// //   return handle(req, res);
+// // });
+
+//   server.listen(PORT,'', (err) => {
+//  //server.listen(4000,'localhost' , (err) => {
+//   //server.listen(PORT, '', (err) => {
+//   if (err) throw err;
+//   console.log(`> Ready on http://localhost:4000`);
+//  //  console.log(`> Ready on https://${HOST}:${PORT}`);
+// });
 
 
  // Modifica tu servidor Express

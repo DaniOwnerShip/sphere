@@ -10,8 +10,9 @@ var TEAM1_id = '6582315543bcbc56797177aa';
 
 
 function getTeam(setter, id) {
-  APIServices.getTeamStructureBy_id({ id })
+  APIServices.getTeamStructureBy_id( id )
     .then(team => {
+      console.log('team =>:', team);
       setter(team.team[0]);
     })
     .catch(error => {
@@ -49,30 +50,45 @@ async function test() {
 const fetchData = async () => {
   console.log('fetchData');
   try {
-    const response = await fetch(`https://sphere-iota.vercel.app/api/hello`);
-     //const response = await fetch('http://localhost:4000/api/hello');
+    //const response = await fetch(`https://sphere-iota.vercel.app/api/hello`);
+     const response = await fetch('http://localhost:4000/testindex');
     //const response = await fetch('https://sphere-iota.vercel.app/custom-route');
     console.log('fetchData response', response);
     const data = await response.json();
-    console.log('fetchData data', data);
-    console.log(data);  
+    console.log('fetchData data', data); 
   } catch (error) {
     console.error('Error de red:', error);
   }
 };
 
 // Llama a la función para realizar el fetch
+  async function getTeamStructureBy_id(teamId) {
+  // const teamId = _teamId.id;
+  console.log('getTeamStructureBy_id>>>:', teamId);
+  const url = `http://localhost:4000/api/${teamId}`;
+  try {
+    const response = await fetch(url);
+    const payload = await response.json();
+    console.log('Respuesta de la API antes de JSON.parse:', response);
 
+    console.log('payload>>>:', payload);
+    return payload;
+  }
+  catch (error) {
+    console.error('error getStructuredTeam>:', error);
+  }
+}
 
 function TeamStruture() {
   fetchData();
-  return;
+ return;
   const systemRef = useRef();
   const [systemTeam, setSystemTeam] = useState();
 
 
   if (!systemTeam) {
     getTeam(setSystemTeam, TEAM1_id);
+     //getTeamStructureBy_id(TEAM1_id);
   }
 
   return (
