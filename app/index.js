@@ -47,10 +47,12 @@ server.get('/testindex', async (req, res) => {
   console.log('get test'  ); 
   res.json({ test: '/test' });
 });
-
-server.all('*', (req, res) => {
+app.get('/', (req, res) => {
   return handle(req, res);
-});
+})
+// server.all('*', (req, res) => {
+//   res.send('hello world')
+// });
  
 app.prepare().then(() => {
   // server.listen(4000,'localhost', (err) => {
