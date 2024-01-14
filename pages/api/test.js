@@ -1,14 +1,10 @@
 
-
-// Definir la función que maneja la solicitud
+ 
 export default function handler(req, res) {
-    console.log(`function handler`);
-    // Comprobar el método HTTP
-    if (req.method === 'GET') {
-      // Enviar una respuesta en formato JSON con el mensaje de "Hola mundo"
+    console.log(`function handler`); 
+    if (req.method === 'GET') { 
       res.status(200).json({ message: 'Hola mundo' });
-    } else {
-      // Enviar un error si el método no es GET
+    } else { 
       res.status(405).json({ message: 'Método no permitido' });
     }
   }
