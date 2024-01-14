@@ -50,7 +50,7 @@ async function test() {
 const fetchData = async () => {
   console.log('fetchData');
   try {
-    const response = await fetch(`https://sphere-iota.vercel.app/api/test`);
+    const response = await fetch(`https://sphere-iota.vercel.app/api/sphere/testteam`);
      //const response = await fetch('http://localhost:4000/testindex');
     //const response = await fetch('https://sphere-iota.vercel.app/custom-route');
     console.log('fetchData response', response);
