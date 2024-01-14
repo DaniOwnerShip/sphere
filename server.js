@@ -43,7 +43,7 @@ mongoose.connection.on('disconnected', () => {
   console.log('MongoDB disconnected');
 });
 
-app.get('/test', (req, res) => {
+server.get('/test', (req, res) => {
   const users = [
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Doe' },
