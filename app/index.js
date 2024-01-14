@@ -47,7 +47,7 @@ server.get('/testindex', async (req, res) => {
   console.log('get test'  ); 
   res.json({ test: '/test' });
 });
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
   return handle(req, res);
 })
 // server.all('*', (req, res) => {
